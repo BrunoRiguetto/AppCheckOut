@@ -61,8 +61,8 @@ public class TestConfig {
 		joao.getSalas().addAll(Arrays.asList(de7a9anos, de3a12anos));
 		augusto.getSalas().addAll(Arrays.asList(de7a9anos, de3a12anos));
 		
-		CheckOut checkOut1 = new CheckOut(UUID.randomUUID(), de3a6anos);
-		CheckOut checkOut2 = new CheckOut(UUID.randomUUID(), de7a9anos);
+		CheckOut checkOut1 = new CheckOut(de3a6anos);
+		CheckOut checkOut2 = new CheckOut(de7a9anos);
 		
 		checkOut1.getCriancas().addAll(Arrays.asList(pedro, debora));
 		checkOut2.getCriancas().addAll(Arrays.asList(joao, augusto));
