@@ -1,0 +1,28 @@
+package com.brtec.appcheckoutlagoinha.models.entities;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Document
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Crianca {
+	
+	@Id
+	private UUID id;
+	private String nomeCompleto;
+	private Instant dataNascimento;
+	private Sexo sexo;
+	private String nomeResponsavel;
+	private List<Sala> salas = new ArrayList<>();
+}
