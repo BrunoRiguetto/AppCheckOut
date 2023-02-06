@@ -46,7 +46,6 @@ public class TestConfig {
 		checkOutRepository.deleteAll();
 				
 		Usuario usuario1 = new Usuario(UUID.randomUUID(), "José da Silva", "josedasilva@email.com", "123456", Perfil.ADMIN);
-
 			
 		Sala de3a6anos = new Sala(UUID.randomUUID(), "3 a 6 anos");
 		Sala de7a9anos = new Sala(UUID.randomUUID(), "7 a 9 anos");
@@ -54,13 +53,24 @@ public class TestConfig {
 				
 		Crianca pedro = new Crianca(UUID.randomUUID(), "Pedro Riguetto", Instant.parse("2019-10-06T11:15:01Z"), Sexo.MASCULINO, "Bruno Riguetto");
 		Crianca debora = new Crianca(UUID.randomUUID(), "Debora Marcelino", Instant.parse("2022-05-30T11:15:01Z"), Sexo.FEMININO, "Sabrina Marcelino");
+		Crianca joao = new Crianca(UUID.randomUUID(), "Joao de Oliveira", Instant.parse("2015-04-20T11:15:01Z"), Sexo.MASCULINO, "Maria de Oliveira");
+		Crianca augusto = new Crianca(UUID.randomUUID(), "Augusto Camargo", Instant.parse("2016-08-10T11:15:01Z"), Sexo.MASCULINO, "Roseli Neves");
+		
+		pedro.getSalas().addAll(Arrays.asList(de3a6anos, de3a12anos));
+		debora.getSalas().addAll(Arrays.asList(de3a6anos, de3a12anos));
+		joao.getSalas().addAll(Arrays.asList(de7a9anos, de3a12anos));
+		augusto.getSalas().addAll(Arrays.asList(de7a9anos, de3a12anos));
 		
 		CheckOut checkOut1 = new CheckOut(UUID.randomUUID(), de3a6anos);
+		CheckOut checkOut2 = new CheckOut(UUID.randomUUID(), de7a9anos);
 		
-		checkOutRepository.save(checkOut1);
+		checkOut1.getCriancas().addAll(Arrays.asList(pedro, debora));
+		checkOut2.getCriancas().addAll(Arrays.asList(joao, augusto));
+		
+		checkOutRepository.saveAll(Arrays.asList(checkOut1, checkOut2));
 		usuarioRepository.save(usuario1);
-		salaRepository.saveAll(Arrays.asList(de3a6anos, de7a9anos));
-		criancaRepository.saveAll(Arrays.asList(pedro, debora));
+		salaRepository.saveAll(Arrays.asList(de3a6anos, de7a9anos, de3a12anos));
+		criancaRepository.saveAll(Arrays.asList(pedro, debora, joao, augusto));
 	}
 	
 }

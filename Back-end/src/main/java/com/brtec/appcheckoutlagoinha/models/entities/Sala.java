@@ -18,5 +18,9 @@ public class Sala {
 	@Id
 	private UUID id;
 	private String nome;
+	
+	public Sala(String nome) {
+		this.nome = nome;
+	}	
 
 }

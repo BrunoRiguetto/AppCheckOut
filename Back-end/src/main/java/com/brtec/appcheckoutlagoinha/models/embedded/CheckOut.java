@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import com.brtec.appcheckoutlagoinha.models.entities.Crianca;
 import com.brtec.appcheckoutlagoinha.models.entities.Sala;
@@ -21,7 +20,6 @@ public class CheckOut {
 	private UUID id;
 	private Sala sala;
 	
-	@DBRef(lazy = true)
 	private List<Crianca> criancas = new ArrayList<>();
 	
 	public CheckOut(UUID id, Sala sala) {
