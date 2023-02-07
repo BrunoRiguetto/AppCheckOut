@@ -44,6 +44,12 @@ public class UsuarioService {
 		
 		return new UsuarioDTO(entity);	
 	}
+	
+	public void deletar(String usuarioId) {
+		getEntityById(usuarioId);
+		repository.deleteById(usuarioId);
+	}
+	
 
 	private void copiaDtoToEntity(UsuarioDTO dto, Usuario entity) {
 		entity.setNome(dto.getNome());
