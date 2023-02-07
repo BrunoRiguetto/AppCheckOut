@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.UUID;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -45,11 +46,11 @@ public class TestConfig {
 		usuarioRepository.deleteAll();
 		checkOutRepository.deleteAll();
 				
-		Usuario usuario1 = new Usuario(UUID.randomUUID(), "José da Silva", "josedasilva@email.com", "123456", Perfil.ADMIN);
+		Usuario usuario1 = new Usuario(null, "José da Silva", "josedasilva@email.com", "123456", Perfil.ADMIN);
 			
-		Sala de3a6anos = new Sala(UUID.randomUUID(), "3 a 6 anos");
-		Sala de7a9anos = new Sala(UUID.randomUUID(), "7 a 9 anos");
-		Sala de3a12anos = new Sala(UUID.randomUUID(), "3 a 12 anos");	
+		Sala de3a6anos = new Sala(null, "3 a 6 anos");
+		Sala de7a9anos = new Sala(null, "7 a 9 anos");
+		Sala de3a12anos = new Sala(null, "3 a 12 anos");	
 				
 		Crianca pedro = new Crianca(UUID.randomUUID(), "Pedro Riguetto", Instant.parse("2019-10-06T11:15:01Z"), Sexo.MASCULINO, "Bruno Riguetto");
 		Crianca debora = new Crianca(UUID.randomUUID(), "Debora Marcelino", Instant.parse("2022-05-30T11:15:01Z"), Sexo.FEMININO, "Sabrina Marcelino");

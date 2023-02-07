@@ -1,7 +1,5 @@
 package com.brtec.appcheckoutlagoinha.models.dto;
 
-import java.util.UUID;
-
 import com.brtec.appcheckoutlagoinha.models.entities.Usuario;
 import com.brtec.appcheckoutlagoinha.models.entities.enuns.Perfil;
 
@@ -14,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UsuarioDTO {
 	
-	private UUID id;
+	private String id;
 	private String nome;
 	private String email;
 	private String senha;
