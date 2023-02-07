@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -42,5 +43,12 @@ public class UsuarioController {
 	public UsuarioDTO inserir(@RequestBody UsuarioDTO usuario){
 		
 		return service.inserir(usuario);
+	}
+	
+	@PutMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public UsuarioDTO atualizar(@PathVariable String id, @RequestBody UsuarioDTO usuario) {
+		
+		return service.atualizar(id, usuario);
 	}
 }

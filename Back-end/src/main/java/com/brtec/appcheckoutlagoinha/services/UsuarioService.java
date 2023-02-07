@@ -25,8 +25,7 @@ public class UsuarioService {
 	}
 	
 	public UsuarioDTO buscarPorId(String usuarioId) {
-		Optional<Usuario> resultado = repository.findById(usuarioId);
-		Usuario entity = resultado.orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado")); 
+		Usuario entity = getEntityById(usuarioId);
 	
 		return new UsuarioDTO(entity);
 	}
@@ -37,12 +36,25 @@ public class UsuarioService {
 		entity = repository.insert(entity);
 		return new UsuarioDTO(entity);
 	}
+	
+	public UsuarioDTO atualizar(String usuarioId, UsuarioDTO dto) {
+		Usuario entity = getEntityById(usuarioId);
+		copiaDtoToEntity(dto, entity);
+		entity = repository.save(entity);
+		
+		return new UsuarioDTO(entity);	
+	}
 
 	private void copiaDtoToEntity(UsuarioDTO dto, Usuario entity) {
 		entity.setNome(dto.getNome());
 		entity.setEmail(dto.getEmail());
 		entity.setSenha(dto.getSenha());
 		entity.setPerfil(dto.getPerfil());		
+	}
+	
+	private Usuario getEntityById(String usuarioId) {
+		Optional<Usuario> resultado = repository.findById(usuarioId);
+		return resultado.orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado")); 
 	}
 	
 }
