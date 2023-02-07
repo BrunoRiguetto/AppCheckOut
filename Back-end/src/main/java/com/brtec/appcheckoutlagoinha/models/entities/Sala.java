@@ -1,8 +1,5 @@
 package com.brtec.appcheckoutlagoinha.models.entities;
 
-import java.util.UUID;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Sala {
 
 	@Id
-	private ObjectId id;
+	private String id;
 	private String nome;
 	
 	public Sala(String nome) {

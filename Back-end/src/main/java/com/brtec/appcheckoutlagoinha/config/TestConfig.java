@@ -2,9 +2,7 @@ package com.brtec.appcheckoutlagoinha.config;
 
 import java.time.Instant;
 import java.util.Arrays;
-import java.util.UUID;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -52,10 +50,10 @@ public class TestConfig {
 		Sala de7a9anos = new Sala(null, "7 a 9 anos");
 		Sala de3a12anos = new Sala(null, "3 a 12 anos");	
 				
-		Crianca pedro = new Crianca(UUID.randomUUID(), "Pedro Riguetto", Instant.parse("2019-10-06T11:15:01Z"), Sexo.MASCULINO, "Bruno Riguetto");
-		Crianca debora = new Crianca(UUID.randomUUID(), "Debora Marcelino", Instant.parse("2022-05-30T11:15:01Z"), Sexo.FEMININO, "Sabrina Marcelino");
-		Crianca joao = new Crianca(UUID.randomUUID(), "Joao de Oliveira", Instant.parse("2015-04-20T11:15:01Z"), Sexo.MASCULINO, "Maria de Oliveira");
-		Crianca augusto = new Crianca(UUID.randomUUID(), "Augusto Camargo", Instant.parse("2016-08-10T11:15:01Z"), Sexo.MASCULINO, "Roseli Neves");
+		Crianca pedro = new Crianca(null, "Pedro Riguetto", Instant.parse("2019-10-06T11:15:01Z"), Sexo.MASCULINO, "Bruno Riguetto");
+		Crianca debora = new Crianca(null, "Debora Marcelino", Instant.parse("2022-05-30T11:15:01Z"), Sexo.FEMININO, "Sabrina Marcelino");
+		Crianca joao = new Crianca(null, "Joao de Oliveira", Instant.parse("2015-04-20T11:15:01Z"), Sexo.MASCULINO, "Maria de Oliveira");
+		Crianca augusto = new Crianca(null, "Augusto Camargo", Instant.parse("2016-08-10T11:15:01Z"), Sexo.MASCULINO, "Roseli Neves");
 		
 		pedro.getSalas().addAll(Arrays.asList(de3a6anos, de3a12anos));
 		debora.getSalas().addAll(Arrays.asList(de3a6anos, de3a12anos));
