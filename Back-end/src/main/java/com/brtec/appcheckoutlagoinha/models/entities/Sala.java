@@ -16,7 +16,10 @@ public class Sala {
 	@Id
 	private String id;
 	private String nome;
-	
+	private String descricao;
+	private int idadeInicial;
+	private int idadeFinal;
+		
 	public Sala(String nome) {
 		this.nome = nome;
 	}	

@@ -23,8 +23,7 @@ public class UsuarioDTO {
 		this.nome = entity.getNome();
 		this.email = entity.getEmail();
 		this.senha = entity.getSenha();
-		this.perfil = entity.getPerfil();
-		
+		this.perfil = entity.getPerfil();		
 	}
 
 }

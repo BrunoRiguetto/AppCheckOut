@@ -46,9 +46,9 @@ public class TestConfig {
 				
 		Usuario usuario1 = new Usuario(null, "José da Silva", "josedasilva@email.com", "123456", Perfil.ADMIN);
 			
-		Sala de3a6anos = new Sala(null, "3 a 6 anos");
-		Sala de7a9anos = new Sala(null, "7 a 9 anos");
-		Sala de3a12anos = new Sala(null, "3 a 12 anos");	
+		Sala de3a6anos = new Sala(null, "3 a 6 anos", null, 3, 6);
+		Sala de7a9anos = new Sala(null, "7 a 9 anos", null, 7, 9);
+		Sala de3a12anos = new Sala(null, "3 a 12 anos", null, 3, 12);	
 				
 		Crianca pedro = new Crianca(null, "Pedro Riguetto", Instant.parse("2019-10-06T11:15:01Z"), Sexo.MASCULINO, "Bruno Riguetto");
 		Crianca debora = new Crianca(null, "Debora Marcelino", Instant.parse("2022-05-30T11:15:01Z"), Sexo.FEMININO, "Sabrina Marcelino");
