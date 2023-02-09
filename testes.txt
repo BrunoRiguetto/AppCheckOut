@@ -1,0 +1,15 @@
+@Test
+public void testBuscarPorId() {
+    // given
+    String usuarioId = "1";
+    UsuarioDTO expected = new UsuarioDTO("John Doe", "johndoe@email.com", "senha123", "ADMIN");
+
+    // when
+    UsuarioDTO actual = usuarioService.buscarPorId(usuarioId);
+
+    // then
+    assertEquals(expected.getNome(), actual.getNome());
+    assertEquals(expected.getEmail(), actual.getEmail());
+    assertEquals(expected.getSenha(), actual.getSenha());
+    assertEquals(expected.getPerfil(), actual.getPerfil());
+}

@@ -24,8 +24,8 @@ public class UsuarioService {
 		return lista.stream().map(x -> new UsuarioDTO(x)).collect(Collectors.toList());
 	}
 	
-	public UsuarioDTO buscarPorId(String usuarioId) {
-		Usuario entity = getEntityById(usuarioId);
+	public UsuarioDTO buscarPorId(String id) {
+		Usuario entity = getEntityById(id);
 	
 		return new UsuarioDTO(entity);
 	}
@@ -37,19 +37,18 @@ public class UsuarioService {
 		return new UsuarioDTO(entity);
 	}
 	
-	public UsuarioDTO atualizar(String usuarioId, UsuarioDTO dto) {
-		Usuario entity = getEntityById(usuarioId);
+	public UsuarioDTO atualizar(String id, UsuarioDTO dto) {
+		Usuario entity = getEntityById(id);
 		copiaDtoToEntity(dto, entity);
 		entity = repository.save(entity);
 		
 		return new UsuarioDTO(entity);	
 	}
 	
-	public void deletar(String usuarioId) {
-		getEntityById(usuarioId);
-		repository.deleteById(usuarioId);
-	}
-	
+	public void deletar(String id) {
+		getEntityById(id);
+		repository.deleteById(id);
+	}	
 
 	private void copiaDtoToEntity(UsuarioDTO dto, Usuario entity) {
 		entity.setNome(dto.getNome());
@@ -58,8 +57,8 @@ public class UsuarioService {
 		entity.setPerfil(dto.getPerfil());		
 	}
 	
-	private Usuario getEntityById(String usuarioId) {
-		Optional<Usuario> resultado = repository.findById(usuarioId);
+	private Usuario getEntityById(String id) {
+		Optional<Usuario> resultado = repository.findById(id);
 		return resultado.orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado")); 
 	}
 	

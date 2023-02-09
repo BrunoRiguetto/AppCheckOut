@@ -5,12 +5,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.brtec.appcheckoutlagoinha.models.dto.SalaDTO;
 import com.brtec.appcheckoutlagoinha.models.entities.Sala;
 import com.brtec.appcheckoutlagoinha.repositories.SalaRepository;
 import com.brtec.appcheckoutlagoinha.services.exceptions.ResourceNotFoundException;
 
+@Service
 public class SalaService {
 
 	@Autowired
@@ -22,8 +24,8 @@ public class SalaService {
 		return lista.stream().map(x -> new SalaDTO(x)).collect(Collectors.toList());
 	}
 
-	public SalaDTO buscarPorId(String salaId) {
-		Sala entity = getEntityById(salaId);
+	public SalaDTO buscarPorId(String id) {
+		Sala entity = getEntityById(id);
 
 		return new SalaDTO(entity);
 	}
@@ -35,17 +37,17 @@ public class SalaService {
 		return new SalaDTO(entity);
 	}
 
-	public SalaDTO atualizar(String salaId, SalaDTO dto) {
-		Sala entity = getEntityById(salaId);
+	public SalaDTO atualizar(String id, SalaDTO dto) {
+		Sala entity = getEntityById(id);
 		copiaDtoToEntity(dto, entity);
 		entity = repository.save(entity);
 
 		return new SalaDTO(entity);
 	}
 
-	public void deletar(String salaId) {
-		getEntityById(salaId);
-		repository.deleteById(salaId);
+	public void deletar(String id) {
+		getEntityById(id);
+		repository.deleteById(id);
 	}
 
 	private void copiaDtoToEntity(SalaDTO dto, Sala entity) {
@@ -55,9 +57,9 @@ public class SalaService {
 		entity.setIdadeFinal(dto.getIdadeFinal());
 	}
 
-	private Sala getEntityById(String salaId) {
-		Optional<Sala> resultado = repository.findById(salaId);
-		return resultado.orElseThrow(() -> new ResourceNotFoundException("Sala não encontrado"));
+	private Sala getEntityById(String id) {
+		Optional<Sala> resultado = repository.findById(id);
+		return resultado.orElseThrow(() -> new ResourceNotFoundException("Sala não encontrada"));
 	}
 
 }
